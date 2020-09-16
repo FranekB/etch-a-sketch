@@ -1,0 +1,47 @@
+html {
+  font-family: Verdana, sans-serif;
+  font-size: 10px;
+
+}
+
+
+header {
+  text-align: center;
+  background-color: green;
+  color: white;
+  width: 800px;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+#game-container {
+  width: 800px;
+  height: 800px;
+  margin: auto;
+  border: 3px solid black;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  /*
+  display: flex;
+  flex-wrap: wrap;
+  */
+}
+
+#settings-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 800px;
+  margin: auto;
+  border: 1px solid green;
+}
+
+#mode-buttons {
+  border: 1px solid yellow;
+  width:40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
