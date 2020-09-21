@@ -15,7 +15,10 @@ resetGridButton.addEventListener("click", resetGrid)
 //Reset grid
 function resetGrid(){
   let cells = document.querySelectorAll("#game-container > div");
-  cells.forEach(cell => cell.style.backgroundColor = "white");
+  cells.forEach(cell => {
+    cell.style.backgroundColor = "#D6D3F0";
+    cell.classList.remove("colored");
+  })
 }
 
 //Setting mode to Black
@@ -31,6 +34,7 @@ rainbowModeButton.addEventListener("click", () =>{
 })
 
 
+
 //removes old grid and calls a function for a new grid
 function changeGridSize(){
   let resolution = +prompt("What resolution of a grid you want to have?(Choose value between 1 and 100)");
@@ -38,6 +42,10 @@ function changeGridSize(){
   //If user enter not a number give alert and don't change anything
   if(isNaN(resolution)){
     alert("You must enter a number!");
+    return
+  }
+  else if(resolution == ""){
+    alert("You must enter some value!");
     return
   }
   else if(resolution > 100){
@@ -62,6 +70,7 @@ function createNewGrid(cellsWidth){
     div.style.height = side / cellsWidth + "px";
     div.style.boxSizing = "border-box";
     div.style.border = "1px dotted grey";
+    div.style.backgroundColor = "#D6D3F0";
     container.appendChild(div);
     container.style.gridTemplate = `repeat(${cellsWidth}, 1fr) / repeat(${cellsWidth}, 1fr)`;
   }
@@ -78,12 +87,25 @@ function createNewGrid(cellsWidth){
 
 //changes color of a cell after hover
 function changeColor(e){
-  if(mode == "black"){
-    e.target.style.backgroundColor = "black";
+  //if color is already colored do nothing
+  if(e.target.classList[0] == "colored"){
+    return
   }
 
-  else if(mode == "rainbow"){
-    e.target.style.backgroundColor = "red";
+  else{
+
+    if(mode == "black"){
+      e.target.style.backgroundColor = "black";
+      e.target.classList.add('colored')
+    }
+
+    else if(mode == "rainbow"){
+      let red = Math.random() * 361;
+      let green = Math.random() * 361;
+      let blue = Math.random() * 361;
+      e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      e.target.classList.add('colored')
+    }
   }
 }
 
