@@ -75,6 +75,7 @@ header {
 
 h1, h2 {
   color: black;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -109,14 +110,16 @@ h2 {
 
 #mode-buttons, #settings-buttons {
   border: 3px solid #9C92A3;
-  width:40%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 10px 15px 10px 10px;
   background-color: #E7E247;
   padding-top: 10px;
 }
+
 
 button {
   border: 1px solid grey;
