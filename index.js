@@ -100,9 +100,9 @@ function changeColor(e){
     }
 
     else if(mode == "rainbow"){
-      let red = Math.random() * 361;
-      let green = Math.random() * 361;
-      let blue = Math.random() * 361;
+      let red = Math.random() * 256;
+      let green = Math.random() * 256;
+      let blue = Math.random() * 256;
       e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
       e.target.classList.add('colored')
     }

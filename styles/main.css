@@ -127,4 +127,5 @@ button {
   background-color: #F1FFC4;
   margin-bottom: 10px;
   border-radius: 2px;
+  font-family: inherit;
 }
